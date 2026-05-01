@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import GoogleLogin
+from .views import FacebookLogin, GoogleLogin
 
 urlpatterns = [
     path('api/auth/', include('dj_rest_auth.urls')),
@@ -7,4 +7,5 @@ urlpatterns = [
     
     # Social Login Endpoint
     path('api/auth/google/', GoogleLogin.as_view(), name='google_login'),
+    path('api/auth/facebook/', FacebookLogin.as_view(), name='fb_login'),
 ]

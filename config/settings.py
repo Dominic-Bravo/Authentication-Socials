@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google', # Example: Google
+    'allauth.socialaccount.providers.facebook', facebook
     
     'users', # Your custom app for user management
 ]
@@ -67,6 +68,26 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# Facebook-specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+        ],
+        'EXCHANGE_TOKEN': True,
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v13.0',
+    }
+}
 
 # Use JWT for modern stateless APIs
 REST_USE_JWT = True
