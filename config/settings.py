@@ -56,6 +56,9 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('Bearer',), # Make sure you are using 'Bearer' in Postman
+}
 # If you're using JWTs for React
 REST_AUTH = {
     'USE_JWT': True,
@@ -94,14 +97,13 @@ REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'my-auth'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ),
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    )
 }
 
 MIDDLEWARE = [
