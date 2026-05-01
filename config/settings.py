@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google', # Example: Google
-    'allauth.socialaccount.providers.facebook', facebook
+    'allauth.socialaccount.providers.facebook', # Example: Facebook
     
     'users', # Your custom app for user management
 ]
