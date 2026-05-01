@@ -18,3 +18,5 @@ class GoogleLogin(SocialLoginView):
 
 class FacebookLogin(SocialLoginView):
     adapter_class = FacebookOAuth2Adapter
+    callback_url = "http://localhost:3000/facebook-callback"
+    client_class = OAuth2Client  # This fixes the current error
