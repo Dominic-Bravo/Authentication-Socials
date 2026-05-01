@@ -10,5 +10,5 @@ from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 
 class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
-    callback_url = "http://localhost:3000/callback/" # Your frontend URL
+    callback_url = "http://localhost:3000/google-callback" # Your frontend URL
     client_class = OAuth2Client
