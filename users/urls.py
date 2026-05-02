@@ -1,5 +1,7 @@
 from django import views
 from django.urls import path, include
+
+from users import consumers
 from .views import FacebookLogin, GoogleLogin, NewsViewSet, ProfileViewSet
 
 urlpatterns = [
@@ -12,4 +14,5 @@ urlpatterns = [
     
     path('api/public/', NewsViewSet.as_view({'get': 'list'}), name='public-news'),
     path('api/private/', ProfileViewSet.as_view({'get': 'list'}), name='private-profile'),
+    
 ]
