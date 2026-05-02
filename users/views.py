@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .task import check_celery_status
 
 # Create your views here.
 
@@ -31,6 +32,7 @@ class NewsViewSet(viewsets.ViewSet):
     permission_classes = [AllowAny]
 
     def list(self, request):
+        check_celery_status.delay()
         return Response({"message": "This is public news available at /api/news/"})
 
 # ViewSet for Private User Data
